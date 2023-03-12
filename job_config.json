@@ -1,0 +1,66 @@
+{
+    "job_id": 953479860524131,
+    "creator_user_name": "mrajaram@integralads.com",
+    "run_as_user_name": "mrajaram@integralads.com",
+    "run_as_owner": true,
+    "settings": {
+        "name": "maitreyi-test",
+        "email_notifications": {
+            "no_alert_for_skipped_runs": false
+        },
+        "webhook_notifications": {},
+        "timeout_seconds": 0,
+        "max_concurrent_runs": 1,
+        "tasks": [
+            {
+                "task_key": "maitreyi-test",
+                "spark_python_task": {
+                    "python_file": "/Repos/mrajaram@integralads.com/databricks-test/main.py"
+                },
+                "job_cluster_key": "Job_cluster",
+                "libraries": [
+                    {
+                        "pypi": {
+                            "package": "databricks-sql-connector==2.3.0"
+                        }
+                    }
+                ],
+                "timeout_seconds": 0,
+                "email_notifications": {}
+            }
+        ],
+        "job_clusters": [
+            {
+                "job_cluster_key": "Job_cluster",
+                "new_cluster": {
+                    "cluster_name": "",
+                    "spark_version": "11.3.x-scala2.12",
+                    "spark_conf": {
+                        "spark.master": "local[*, 4]",
+                        "spark.databricks.cluster.profile": "singleNode"
+                    },
+                    "aws_attributes": {
+                        "first_on_demand": 1,
+                        "availability": "SPOT_WITH_FALLBACK",
+                        "zone_id": "us-east-1e",
+                        "spot_bid_price_percent": 100,
+                        "ebs_volume_count": 0
+                    },
+                    "node_type_id": "i3.xlarge",
+                    "custom_tags": {
+                        "ResourceClass": "SingleNode"
+                    },
+                    "spark_env_vars": {
+                        "PYSPARK_PYTHON": "/databricks/python3/bin/python3"
+                    },
+                    "enable_elastic_disk": false,
+                    "data_security_mode": "SINGLE_USER",
+                    "runtime_engine": "STANDARD",
+                    "num_workers": 0
+                }
+            }
+        ],
+        "format": "MULTI_TASK"
+    },
+    "created_time": 1678648686767
+}
