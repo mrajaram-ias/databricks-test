@@ -13,8 +13,8 @@ def main():
                      access_token=dbutils.secrets.get(scope="workflow", key="databricks_token")) as connection:
         with connection.cursor() as cursor:
             cursor.execute(
-                f'SELECT COUNT(DISTINCT station_name) FROM {config.get("catalog")}.{config.get("schema")}.{config.get("table")} '
-                f'GROUP BY Line'
+                f'SELECT `Station Name` FROM {config.get("catalog")}.{config.get("schema")}.{config.get("table")} '
+                f'GROUP BY `Station Name`, Line;'
             )
             result = cursor.fetchall()
     for row in result:
