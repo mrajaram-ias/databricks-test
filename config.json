@@ -1,5 +1,5 @@
 {
-  "catalog_name": "testing_sandbox",
+  "catalog": "testing_sandbox",
   "schema": "mrajaram_test",
-  "table_name": "nyc_transit_subway_entrance_and_exit_data"
+  "table": "nyc_transit_subway_entrance_and_exit_data"
 }
