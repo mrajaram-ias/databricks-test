@@ -1,5 +1,4 @@
 import json
-import os
 from databricks import sql
 
 
@@ -9,8 +8,8 @@ def main():
     :return:
     """
     config = json.loads(open("config.json").read())
-    with sql.connect(server_hostname="dbc-f7060552-825c.cloud.databricks.com",
-                     http_path="/sql/1.0/warehouses/7f5f47a2f194c89d",
+    with sql.connect(server_hostname="https://ias-sandbox.cloud.databricks.com/",
+                     http_path="sql/protocolv1/o/3808232419777503/0301-165641-8avwekvl",
                      access_token=dbutils.secrets.get(scope="workflow", key="databricks_token")) as connection:
         with connection.cursor() as cursor:
             cursor.execute(
