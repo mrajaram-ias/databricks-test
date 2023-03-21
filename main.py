@@ -11,12 +11,12 @@ def generate_json(name: str, existing_cluster_id: str):
     :return:
     """
     return {
-        "name": name,
+        "name": f'{name}_model_training',
         "tasks": [
             {
                 "task_key": "maitreyi-test",
                 "spark_python_task": {
-                    "python_file": "/Repos/mrajaram@integralads.com/databricks-test/main.py"
+                    "python_file": "/Repos/mrajaram@integralads.com/databricks-test/run_model.py"
                 },
                 "existing_cluster_id": existing_cluster_id,
                 "libraries": [
@@ -92,7 +92,7 @@ def main():
             result = cursor.fetchall()
     for row in result:
         print("LOGGING ALL KEYS")
-        print(row["Station Name"])
+        print(row[0])
         cluster_id = config.get("cluster_id")
         create_job(endpoint=f'https://ias-{env}.cloud.databricks.com/api/2.0/jobs/create', token=token, name=row[0], cluster_id=cluster_id)
 
