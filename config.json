@@ -1,5 +1,7 @@
 {
   "catalog": "testing_sandbox",
   "schema": "mrajaram_test",
-  "table": "nyc_transit_subway_entrance_and_exit_data"
+  "table": "nyc_transit_subway_entrance_and_exit_data",
+  "env": "sandbox",
+  "cluster_id": "0301-165641-8avwekvl"
 }
