@@ -91,7 +91,8 @@ def main():
             )
             result = cursor.fetchall()
     for row in result:
-        print(row[0])
+        print("LOGGING ALL KEYS")
+        print(row["Station Name"])
         cluster_id = config.get("cluster_id")
         create_job(endpoint=f'https://ias-{env}.cloud.databricks.com/api/2.0/jobs/create', token=token, name=row[0], cluster_id=cluster_id)
 
