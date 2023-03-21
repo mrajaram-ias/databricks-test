@@ -68,6 +68,7 @@ def create_job(endpoint: str, token: str, name: str, cluster_id: str):
     headers = {"Authorization": f'Bearer {token}'}
     r = requests.post(endpoint, headers=headers, json=generate_json(name=name, existing_cluster_id=cluster_id))
     if r.status_code == 200:
+        r = r.json()
         logging.info(r['job_id'])
     else:
         logging.error(r.text)
